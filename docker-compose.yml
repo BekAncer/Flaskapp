@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  app:
+    build: .
+    command: bash -c "alembic upgrade head && python ./src/app.py"
+    ports:
+      - 5001:5001
+    env_file:
+      - .env
+    depends_on:
+      - postgresql
+    volumes:
+      - .:/app
+
+volumes:
+  pg-data:

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<form action="/CatalogChange" method="post" class="product">
+    <p><label>Название товара:<label/><input type="text" name="name" value="" autocomplete="off" required > </label>
+    <p><label>Цена:<label/><input type="text" name="price" value="" autocomplete="off" required /> </label>
+    <p><label>Название изображения:<label/><input type="text" name="imgsrc" value="" autocomplete="off" required /> </label>
+    <p><input type="submit" value="Отправить" /> </p>
+</form>
+{% endblock %}
