@@ -3,6 +3,7 @@ import os
 
 load_dotenv()
 
+# почему совпадает с models?
 
 DB_HOST = os.environ.get("POSTGRES_HOST")
 DB_PORT = os.environ.get("POSTGRES_PORT")

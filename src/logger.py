@@ -1,10 +1,10 @@
-import logging
 import asyncio
-from models import Sneaker, db
+import logging
+
 from app import app
+from models import Sneaker, db
 
-
-logger = logging.basicConfig(
+logging.basicConfig(
     filename='report.log',
     encoding='utf-8',
     level=logging.INFO,

@@ -6,6 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
 db.init_app(app)
 
 
+# https://restfulapi.net/resource-naming/
 menu = [
     {"name": "Добавить", "url": "/CatalogChange"},
     {"name": "Убрать", "url": "/CatalogDelete"},
@@ -45,11 +46,14 @@ def delete_sneaker():
 
 @app.route("/SneakerCatalog")
 def about():
+    # разделить работу с БД и эндпоинты
     Sneakers = db.session.execute(db.select(Sneaker).order_by(Sneaker.name)).scalars()
     return render_template('Catalog.html', Sneakers=Sneakers, Menu=menu)
 
 
 if __name__ == '__main__':
+    # регулировать через переменные среды
+    # обернуть в gunicorn/uvicorn
     app.run(
         host='0.0.0.0', port='5001'
     )

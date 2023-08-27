@@ -1,5 +1,6 @@
 version: '3'
 
+# не доделано
 services:
   postgresql:
     image: postgres:latest

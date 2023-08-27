@@ -1,3 +1,4 @@
+# почему именно slim? есть еще и бустер образы, как пример
 FROM python:3.11-slim
 
 WORKDIR /app

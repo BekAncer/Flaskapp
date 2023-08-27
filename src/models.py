@@ -1,9 +1,11 @@
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from sqlalchemy import MetaData
 import os
-from dotenv import load_dotenv
+from datetime import datetime
 
+from dotenv import load_dotenv
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
+
+# что здесь конфиги забыли?
 load_dotenv()
 DB_HOST = os.environ.get("POSTGRES_HOST")
 DB_PORT = os.environ.get("POSTGRES_PORT")
@@ -24,4 +26,4 @@ class Sneaker(db.Model):
     date = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __repr__(self):
-        return'<Article %r>' % self.id
+        return '<Article %r>' % self.id

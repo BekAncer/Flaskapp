@@ -2,3 +2,5 @@
 после этого:
 # docker compose build
 # docker compose up
+
+Большую часть комментов и ссылок - закинул в телеграм
