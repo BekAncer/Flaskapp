@@ -13,16 +13,15 @@ DB_PASS = os.environ.get("POSTGRES_PASSWORD")
 DB_URI = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"
 
 metadata = MetaData()
-
 db = SQLAlchemy()
+
+
 class Sneaker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable = False)
-    price = db.Column(db.Integer, nullable = False)
-    imgsrc = db.Column(db.String(100),nullable = False)
-    date = db.Column(db.DateTime, default = datetime.utcnow())
+    name = db.Column(db.String(50), unique=True, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    imgsrc = db.Column(db.String(100),nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __repr__(self):
         return'<Article %r>' % self.id
-
-
