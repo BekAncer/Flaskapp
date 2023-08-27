@@ -1,8 +1,4 @@
 from flask import Flask, render_template, request
-import psycopg2
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-import os
 from models import DB_URI, Sneaker, db
 
 app = Flask(__name__)
