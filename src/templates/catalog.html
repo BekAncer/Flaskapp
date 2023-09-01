@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for Sneaker in Sneakers %}
+  <div class="product">
+    <img src="/static/images/{{Sneaker.imgsrc}}" alt="Product {{Sneaker.id}}">
+    <div class="product-title">{{Sneaker.name}}</div>
+    <div class="product-price">${{Sneaker.price}}.00</div>
+  </div>
+  {% endfor %}
+{% endblock %}

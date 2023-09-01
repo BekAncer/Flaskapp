@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-{{ super() }}
-<form action="/CatalogDelete" method="post" class="product">
-    <p><label>Название товара, который необходимо убрать с каталога: <label/><input type="text" name="name" value="" autocomplete="off" required > </label>
-    <p><input type="submit" value="Отправить" /> </p>
-</form>
-{% endblock %}

@@ -16,12 +16,12 @@ menu = [
 
 
 @app.route("/")
-@app.route("/Contacts")
+@app.route("/contacts")
 def contacts():
-    return render_template('Contacts.html', Menu=menu)
+    return render_template('contacts.html', Menu=menu)
 
 
-@app.route("/CatalogChange", methods=["POST", "GET"])
+@app.route("/catalog-change", methods=["POST", "GET"])
 def catalog_change():
     if request.method == "POST":
         sneaker = Sneaker(
@@ -31,24 +31,24 @@ def catalog_change():
         )
         db.session.add(sneaker)
         db.session.commit()
-    return render_template('CatalogChange.html', Menu=menu)
+    return render_template('catalog-change.html', Menu=menu)
 
 
-@app.route("/CatalogDelete", methods=["POST", "GET"])
+@app.route("/catalog-delete", methods=["POST", "GET"])
 def delete_sneaker():
     if request.method == "POST":
         snkr = Sneaker.query.filter_by(name=request.form['name']).first()
         if snkr:
             db.session.delete(snkr)
             db.session.commit()
-    return render_template('CatalogDelete.html', Menu=menu)
+    return render_template('catalog-delete.html', Menu=menu)
 
 
-@app.route("/SneakerCatalog")
+@app.route("/catalog")
 def about():
     # разделить работу с БД и эндпоинты
     Sneakers = db.session.execute(db.select(Sneaker).order_by(Sneaker.name)).scalars()
-    return render_template('Catalog.html', Sneakers=Sneakers, Menu=menu)
+    return render_template('catalog.html', Sneakers=Sneakers, Menu=menu)
 
 
 if __name__ == '__main__':
