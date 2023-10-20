@@ -1,6 +1,6 @@
 version: '3'
 
-# не доделано
+
 services:
   postgresql:
     image: postgres:latest
@@ -22,6 +22,7 @@ services:
       - postgresql
     volumes:
       - .:/app
+
 
 volumes:
   pg-data:

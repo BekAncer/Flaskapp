@@ -1,4 +1,3 @@
-# почему именно slim? есть еще и бустер образы, как пример
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -10,4 +9,4 @@ RUN apt-get update \
     && pip install psycopg2 \
     && pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/
+COPY . .

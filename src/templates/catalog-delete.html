@@ -2,8 +2,13 @@
 
 {% block content %}
 {{ super() }}
-<form action="/CatalogDelete" method="post" class="product">
-    <p><label>Название товара, который необходимо убрать с каталога: <label/><input type="text" name="name" value="" autocomplete="off" required > </label>
-    <p><input type="submit" value="Отправить" /> </p>
+<form action="/catalog-delete" method="post" class="product">
+    <select name="sneaker-id">
+        <option disabled>Выберите модель</option>
+        {% for Sneaker in Sneakers %}
+        <option value={{Sneaker.id}}>{{Sneaker.name}}</option>
+        {% endfor %}
+    </select>
+    <p><input type="submit" value="удалить модель" /></p>
 </form>
 {% endblock %}
